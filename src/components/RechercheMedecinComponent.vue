@@ -31,6 +31,7 @@ export default {
     name: 'RechercheMedecinComponent',
     data(){
         return{
+            isNavMedVisible: false,
             idMedecin: '', //ID du médecin selectionné
             nomMedecin: '', //Nom du médecin selectionné
             items:[], //liste qui va contenir les médecins trouvés
@@ -65,6 +66,7 @@ export default {
             this.$store.state.medecin = item;
             this.nomMedecin = item.nom + " " + item.prenom+ " "+item.id
             this.$parent.isNavMedVisible=true;
+            
 
         }
     }

@@ -1,6 +1,7 @@
 <template>
   <NavbarComponent/>
   Bienvenue {{ this.$store.state.utilisateur.nom +" "+this.$store.state.utilisateur.prenom }}
+  <p> {{this.$store.state.utilisateur}} </p>
   <h1>ACCUEIL</h1>
 </template>
 

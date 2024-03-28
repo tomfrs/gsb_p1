@@ -1,34 +1,54 @@
 <template>
-    <NavbarComponent/>
+  <NavbarComponent>
+  </NavbarComponent>
+  <div>
+      <h1>Information Medecin:</h1>
+  </div>
+  <v-toolbar border density="comfortable" v-show="isNavMedVisible">
+      <v-col class="d-flex justify-space-around">
+          <v-btn @click="AfficheRapport">Consulter les rapports</v-btn>
+          <v-btn @click="AfficheMedecin">Gérer le medecin</v-btn>
+      </v-col>
+  </v-toolbar>
+  <RechercheMedecinComponent/>
 
-    <v-toolbar v-show="isNavMedVisible" density="comfortable">
-        <v-col class="d-flex justify-space-around">
-            <v-btn>CONSULTER LES RAPPORTS</v-btn>
-        </v-col>
-        <v-col class="d-flex justify-space-around">
-            <v-btn>GERER LE MEDECIN</v-btn>
-        </v-col>
-    </v-toolbar>
-    
-    <RechercheMedecinComponent/>
+  <div v-show="FicheMedecin" :key="maj">
+      <FicheMedecinComponent/>
+  </div> 
+
+  <div v-show="ListeRapport" :key="maj" >
+      <ListeRapportsComponent/>
+  </div>
+
+</template>
+
+<script>
 
 
-
-    Bienvenue {{ this.$store.state.utilisateur.nom +" "+this.$store.state.utilisateur.prenom }}
-    <h1>This is a medecin page</h1>
-
-
-
-  </template>
-  
-  <script>
-  import NavbarComponent from '@/components/NavbarComponent.vue';
-  import RechercheMedecinComponent from '@/components/RechercheMedecinComponent.vue';
-  export default {
-    isNavMedVisible : false,
-    components : {NavbarComponent,RechercheMedecinComponent}
+import NavbarComponent from '@/components/NavbarComponent.vue';
+import RechercheMedecinComponent from '@/components/RechercheMedecinComponent.vue';
+import FicheMedecinComponent from '@/components/FicheMedecinComponent.vue';
+import ListeRapportsComponent from '@/components/ListeRapportsComponent.vue'
+export default {
+  data(){
+      return{
+          maj: 0,
+          ListeRapport:false,
+          FicheMedecin:false,
+          isNavMedVisible:false,
+      }
+  },
+  components: { NavbarComponent, RechercheMedecinComponent,FicheMedecinComponent,ListeRapportsComponent},
+methods: {
+  AfficheMedecin(){
+      this.FicheMedecin=true,
+      this.ListeRapport=false
+  },
+  AfficheRapport(){
+      this.FicheMedecin=false,
+      this.ListeRapport=true
   }
+}
+}
 
-  </script>
-  
-  
+</script>
