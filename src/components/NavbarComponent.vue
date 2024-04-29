@@ -4,6 +4,9 @@
             <v-btn to="/accueil">Accueil</v-btn>
         </v-col>
         <v-col class="d-flex justify-space-around">
+            <v-btn to="/visiteur">Visiteur</v-btn>
+        </v-col>
+        <v-col class="d-flex justify-space-around">
             <v-btn to="/rapports">Rapports</v-btn>
         </v-col>
         <v-col class="d-flex justify-space-around">

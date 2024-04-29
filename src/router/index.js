@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import MedecinView from '../views/MedecinView.vue'
 import RapportsView from '../views/RapportsView.vue'
 import accueil from '../views/AccueilView.vue'
+import VisiteurView from '../views/VisiteurView.vue'
 
 
 const routes = [
@@ -25,6 +26,11 @@ const routes = [
     path: '/accueil',
     name: 'accueil',
     component: accueil
+  },
+  {
+    path: '/visiteur',
+    name: 'visiteur',
+    component: VisiteurView
   },
   {
     path: '/about',
